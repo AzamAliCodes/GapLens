@@ -43,38 +43,42 @@ export async function POST(req: NextRequest) {
 
     const analyzeRequest = parseResult.data;
 
-    // 3. Set up streaming response (NDJSON)
+    // 3. Set up streaming response (NDJSON) using standard ReadableStream
+    // Using ReadableStream.start() ensures the serverless function lifecycle remains active until controller.close()
     const encoder = new TextEncoder();
-    const stream = new TransformStream();
-    const writer = stream.writable.getWriter();
+    const stream = new ReadableStream({
+      async start(controller) {
+        const sendEvent = (event: StreamEvent) => {
+          try {
+            const line = JSON.stringify(event) + '\n';
+            controller.enqueue(encoder.encode(line));
+          } catch {
+            // Stream may be closed if client disconnected
+          }
+        };
 
-    function sendEvent(event: StreamEvent) {
-      const line = JSON.stringify(event) + '\n';
-      writer.write(encoder.encode(line)).catch(() => {});
-    }
+        try {
+          await runAnalysisPipeline(analyzeRequest, (event) => {
+            sendEvent(event);
+          });
+        } catch (err: unknown) {
+          const errorMsg = err instanceof Error ? err.message : String(err);
+          console.error('[API /api/analyze] Pipeline execution error:', errorMsg);
+          sendEvent({
+            stage: 'error',
+            status: 'Analysis failed',
+            progress: 0,
+            error: errorMsg,
+          });
+        } finally {
+          try {
+            controller.close();
+          } catch {}
+        }
+      },
+    });
 
-    // Run pipeline asynchronously while streaming updates
-    (async () => {
-      try {
-        await runAnalysisPipeline(analyzeRequest, (event) => {
-          sendEvent(event);
-        });
-      } catch (err: unknown) {
-        const errorMsg = err instanceof Error ? err.message : String(err);
-        sendEvent({
-          stage: 'error',
-          status: 'Analysis failed',
-          progress: 0,
-          error: errorMsg,
-        });
-      } finally {
-        writer.close().catch(() => {});
-      }
-    })();
-
-    // In HTTP/2 and serverless environments, chunked encoding is handled automatically by the runtime.
-    // Explicit 'Transfer-Encoding' or 'Connection' headers are forbidden by RFC 7540 §8.1.2.2 and cause 500 errors.
-    return new Response(stream.readable, {
+    return new Response(stream, {
       headers: {
         'Content-Type': 'application/x-ndjson; charset=utf-8',
         'Cache-Control': 'no-cache, no-transform',

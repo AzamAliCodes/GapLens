@@ -31,7 +31,7 @@ export async function runAnalysisPipeline(
   const candidateAnswer = request.answer?.trim() || undefined;
   const mode: Mode = request.mode || (candidateAnswer ? 'answer_audit' : 'research_gaps');
 
-  const pace = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+  const pace = (ms: number) => new Promise((resolve) => setTimeout(resolve, Math.min(ms, 50)));
 
   // STAGE 1: QUESTION CONTEXT ANALYSIS
   onProgress?.({
