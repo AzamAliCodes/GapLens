@@ -1,19 +1,10 @@
-import fs from 'fs';
-import path from 'path';
 import { Source, SourceInput, SourceRecord } from '../types';
 import { validateUrlForSsrf } from '../security/ssrf';
 import { extractTextFromHtml } from './extractText';
 import { classifySource } from './classify';
 import { chunkTextIntoPassages } from './chunk';
 import { computeContentHash, computeProvenanceGroupId, assessSourceAuthority } from '../sources/sourceProvenance';
-
-// Mapping for bundled sample reference documents (ensures 100% offline reliability for demo runs)
-const SAMPLE_LOCAL_MAP: Record<string, string> = {
-  'https://scholarships.gov.in/national-merit-2026': 'official-scholarship.html',
-  'https://studentdesk.org/scholarships/national-merit-guide': 'student-portal.html',
-  'https://edutips.net/articles/merit-scholarship-advice': 'blog-advice.html',
-  'https://scholarshipforum.in/threads/national-merit-questions': 'undated-forum.html',
-};
+import { getBundledSampleHtml } from '../samples/bundledSamples';
 
 // In-memory cache: 10 minutes cache per URL to make repeat analyses instantaneous
 interface CacheEntry {
@@ -99,38 +90,33 @@ export async function processSourceInput(
     };
   }
 
-  // Check if this matches a bundled local sample file for offline/demo reliability
-  const sampleFileName = SAMPLE_LOCAL_MAP[rawUrl];
-  if (sampleFileName) {
+  // Check if this matches a bundled local sample file for offline/demo reliability (100% in-memory)
+  const bundledHtml = getBundledSampleHtml(rawUrl);
+  if (bundledHtml) {
     try {
-      const samplePath = path.join(process.cwd(), 'public', 'samples', sampleFileName);
-      if (fs.existsSync(samplePath)) {
-        const html = fs.readFileSync(samplePath, 'utf-8');
-        const parsedUrl = new URL(rawUrl);
-        const domain = parsedUrl.hostname.replace(/^www\./, '');
-        const kind = classifySource(domain, false);
-        const extracted = extractTextFromHtml(html, rawUrl);
-        const passages = chunkTextIntoPassages(sourceId, extracted.textContent);
-        const contentHash = computeContentHash(extracted.textContent);
-        const provenanceGroupId = computeProvenanceGroupId(rawUrl, contentHash);
+      const domain = safeExtractDomain(rawUrl);
+      const kind = classifySource(domain, false);
+      const extracted = extractTextFromHtml(bundledHtml, rawUrl);
+      const passages = chunkTextIntoPassages(sourceId, extracted.textContent);
+      const contentHash = computeContentHash(extracted.textContent);
+      const provenanceGroupId = computeProvenanceGroupId(rawUrl, contentHash);
 
-        return {
-          id: sourceId,
-          url: rawUrl,
-          title: input.label || extracted.title || domain,
-          domain,
-          kind,
-          publishedAt: extracted.publishedAt,
-          updatedAt: extracted.updatedAt,
-          fetchStatus: 'ok',
-          passages,
-          rawText: extracted.textContent,
-          contentHash,
-          provenanceGroupId,
-        };
-      }
+      return {
+        id: sourceId,
+        url: rawUrl,
+        title: input.label || extracted.title || domain,
+        domain,
+        kind,
+        publishedAt: extracted.publishedAt,
+        updatedAt: extracted.updatedAt,
+        fetchStatus: 'ok',
+        passages,
+        rawText: extracted.textContent,
+        contentHash,
+        provenanceGroupId,
+      };
     } catch (err) {
-      console.warn('Failed reading sample file, falling back to network fetch:', err);
+      console.warn('Failed parsing bundled sample, falling back to network fetch:', err);
     }
   }
 
