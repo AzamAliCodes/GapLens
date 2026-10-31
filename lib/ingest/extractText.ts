@@ -49,15 +49,19 @@ export function extractTextFromHtml(html: string, fallbackUrl?: string): Extract
     // 2. Try Mozilla Readability for article-focused main text
     try {
       const dom = new JSDOM(html, { url: fallbackUrl || 'https://example.com' });
-      const reader = new Readability(dom.window.document);
-      const article = reader.parse();
+      try {
+        const reader = new Readability(dom.window.document);
+        const article = reader.parse();
 
-      if (article && article.textContent && article.textContent.trim().length > 150) {
-        if (article.title) title = article.title;
-        textContent = article.textContent.trim();
+        if (article && article.textContent && article.textContent.trim().length > 150) {
+          if (article.title) title = article.title;
+          textContent = article.textContent.trim();
+        }
+      } finally {
+        dom.window.close();
       }
     } catch {
-      // Fallback to Cheerio if Readability throws
+      // Fallback to Cheerio if Readability throws or JSDOM fails
     }
 
     // 3. Fallback to Cheerio text if Readability yielded too little or failed

@@ -158,7 +158,7 @@ export async function processSourceInput(
   try {
     while (redirects <= maxRedirects) {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout to protect serverless limits
 
       const response = await fetch(currentUrl, {
         method: 'GET',
@@ -271,7 +271,7 @@ export async function processSourceInput(
       domain: domain || 'unknown',
       kind: classifySource(domain, false),
       fetchStatus: 'failed',
-      error: errorMsg.includes('aborted') ? 'Request timed out after 10 seconds' : errorMsg,
+      error: errorMsg.includes('aborted') ? 'Request timed out after 5 seconds' : errorMsg,
       passages: [],
       contentHash: 'error_content',
       provenanceGroupId: 'prov-error',

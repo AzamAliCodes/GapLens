@@ -4,8 +4,6 @@ import { checkRateLimit } from '@/lib/security/ratelimit';
 import { runAnalysisPipeline } from '@/lib/analyze/pipeline';
 import { StreamEvent } from '@/lib/types';
 
-export const maxDuration = 60;
-
 export async function POST(req: NextRequest) {
   try {
     // 1. Rate limiting check
