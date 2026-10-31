@@ -1,0 +1,371 @@
+{
+  "id": "ANL-DEMO-2026",
+  "goal": "What should I verify before applying for this scholarship?",
+  "createdAt": "2026-10-31T10:00:00.000Z",
+  "isDemo": true,
+  "sources": [
+    {
+      "id": "S1",
+      "url": "https://scholarships.gov.in/national-merit-2026",
+      "title": "National Merit Scholarship 2026 - Official Notification",
+      "domain": "scholarships.gov.in",
+      "kind": "official",
+      "publishedAt": "2026-08-01T10:00:00.000Z",
+      "updatedAt": "2026-09-15T12:00:00.000Z",
+      "fetchStatus": "ok",
+      "passages": [
+        {
+          "id": "S1-P1",
+          "text": "Applicants must be bonafide citizens enrolled in full-time undergraduate study at an accredited university. Eligible candidates must have achieved a minimum aggregate of 75% marks in their Higher Secondary Examination (Class 12). Total gross family income from all sources must not exceed INR 4,50,000 per annum.",
+          "wordCount": 46
+        },
+        {
+          "id": "S1-P2",
+          "text": "Candidates are required to upload digital copies of their Class 10 and 12 mark sheets, an official Domicile Certificate issued by a competent magistrate, and an authenticated Income Certificate issued exclusively by the Revenue Officer / Tehsildar or a valid Ration Card.",
+          "wordCount": 42
+        },
+        {
+          "id": "S1-P3",
+          "text": "The online application portal opens on 15 August 2026. The definitive closing date for submitting online applications is 30 November 2026 at 11:59 PM IST. Incomplete submissions or submissions made after the closing date will be rejected automatically without notice.",
+          "wordCount": 41
+        },
+        {
+          "id": "S1-P4",
+          "text": "Selected scholarship recipients will receive a non-repayable grant of INR 50,000 per academic year, transferred directly via Direct Benefit Transfer (DBT) to the recipient's Aadhaar-seeded bank account in two equal biannual installments.",
+          "wordCount": 33
+        },
+        {
+          "id": "S1-P5",
+          "text": "Applications must be submitted solely through the designated official web portal at https://scholarships.gov.in/national-merit-2026. No physical applications or email submissions will be entertained.",
+          "wordCount": 24
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "url": "https://studentdesk.org/scholarships/national-merit-guide",
+      "title": "StudentDesk: Guide to National Merit Scholarship 2026",
+      "domain": "studentdesk.org",
+      "kind": "third_party",
+      "publishedAt": "2026-09-01T09:00:00.000Z",
+      "updatedAt": "2026-09-20T14:30:00.000Z",
+      "fetchStatus": "ok",
+      "passages": [
+        {
+          "id": "S2-P1",
+          "text": "The National Merit Scholarship provides generous financial aid to undergraduate students. Applicants need to show at least 75% marks in their 12th board exams and must have household income within the Rs 4.5 Lakh ceiling.",
+          "wordCount": 36
+        },
+        {
+          "id": "S2-P2",
+          "text": "Make sure you have your Class 12 passing certificate, student ID card, and bank passbook ready. For financial verification, applicants must upload their parent's formal Income Tax Return (ITR) acknowledgment from the past assessment year or Form 16 from their employer. Revenue certificates without ITR are not accepted on the portal.",
+          "wordCount": 54
+        },
+        {
+          "id": "S2-P3",
+          "text": "The official portal opened in mid-August and the last date for submitting online applications is 30 November 2026.",
+          "wordCount": 18
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "url": "https://edutips.net/articles/merit-scholarship-advice",
+      "title": "EduTips Blog: Tips for the National Merit Scholarship",
+      "domain": "edutips.net",
+      "kind": "third_party",
+      "publishedAt": "2024-07-10T08:00:00.000Z",
+      "fetchStatus": "ok",
+      "passages": [
+        {
+          "id": "S3-P1",
+          "text": "For the AY 2024-25 cycle, the ministry requires students to maintain a consistent academic record with 75% marks in high school exams. Ensure your college is enrolled under the National Scholarship Portal.",
+          "wordCount": 33
+        },
+        {
+          "id": "S3-P2",
+          "text": "Be aware that the portal for the 2024-25 batch closed in October 2024. Students should always verify whether previous cycle rules carry over to the new term.",
+          "wordCount": 27
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "url": "https://scholarshipforum.in/threads/national-merit-questions",
+      "title": "ScholarshipForum: User Thread on National Merit Application",
+      "domain": "scholarshipforum.in",
+      "kind": "third_party",
+      "fetchStatus": "ok",
+      "passages": [
+        {
+          "id": "S4-P1",
+          "text": "Many students ask whether undergraduate freshers can re-apply if their family income changes later. Note that the official scholarship guidelines discuss initial entry criteria and basic documentation, but do not provide explicit renewal clauses or continuing GPA requirements for year two.",
+          "wordCount": 41
+        }
+      ]
+    }
+  ],
+  "facets": [
+    {
+      "id": "F1",
+      "name": "Eligibility Criteria",
+      "question": "What specific academic, domicile, or income qualifications are strictly required?",
+      "criticality": 3,
+      "keywords": ["eligibility", "75%", "undergraduate", "income"]
+    },
+    {
+      "id": "F2",
+      "name": "Application Deadline",
+      "question": "What is the exact closing date and time for the current cycle submission?",
+      "criticality": 3,
+      "keywords": ["deadline", "closing date", "30 november", "portal"]
+    },
+    {
+      "id": "F3",
+      "name": "Mandatory Documents",
+      "question": "What exact certificates, income proofs, or affidavits must be uploaded?",
+      "criticality": 3,
+      "keywords": ["documents", "income certificate", "itr", "tehsildar", "mark sheet"]
+    },
+    {
+      "id": "F4",
+      "name": "Renewal Policy",
+      "question": "What ongoing GPA, attendance, or re-application conditions are required to retain the award in future years?",
+      "criticality": 3,
+      "keywords": ["renewal", "continuing gpa", "subsequent year", "maintenance"]
+    },
+    {
+      "id": "F5",
+      "name": "Award Amount & Disbursement",
+      "question": "What exact financial sum, tuition waiver, or allowance is disbursed and on what schedule?",
+      "criticality": 2,
+      "keywords": ["amount", "inr 50,000", "dbt", "disbursement", "grant"]
+    },
+    {
+      "id": "F6",
+      "name": "Official Application Portal",
+      "question": "What is the genuine official URL or platform through which forms must be submitted?",
+      "criticality": 2,
+      "keywords": ["portal", "scholarships.gov.in", "official", "url"]
+    },
+    {
+      "id": "F7",
+      "name": "Selection & Merit Criteria",
+      "question": "How are candidates ranked, evaluated, or interviewed?",
+      "criticality": 2,
+      "keywords": ["selection", "merit", "evaluation", "quota"]
+    },
+    {
+      "id": "F8",
+      "name": "Helpdesk & Grievance Contact",
+      "question": "What official helpline number, email, or physical authority handles queries and disputes?",
+      "criticality": 1,
+      "keywords": ["helpdesk", "contact", "helpline", "grievance"]
+    }
+  ],
+  "facts": [
+    {
+      "id": "FACT-S1-1",
+      "facetId": "F1",
+      "sourceId": "S1",
+      "passageId": "S1-P1",
+      "claim": "Applicants must be undergraduate citizens with minimum 75% marks in Class 12 and gross family income under INR 4,50,000 per annum.",
+      "quote": "Eligible candidates must have achieved a minimum aggregate of 75% marks in their Higher Secondary Examination (Class 12). Total gross family income from all sources must not exceed INR 4,50,000 per annum.",
+      "coverage": "full",
+      "verified": true
+    },
+    {
+      "id": "FACT-S1-2",
+      "facetId": "F3",
+      "sourceId": "S1",
+      "passageId": "S1-P2",
+      "claim": "Mandatory documents include mark sheets, domicile certificate, and income certificate from Revenue Officer/Tehsildar or Ration Card.",
+      "quote": "Candidates are required to upload digital copies of their Class 10 and 12 mark sheets, an official Domicile Certificate issued by a competent magistrate, and an authenticated Income Certificate issued exclusively by the Revenue Officer / Tehsildar or a valid Ration Card.",
+      "coverage": "full",
+      "verified": true
+    },
+    {
+      "id": "FACT-S1-3",
+      "facetId": "F2",
+      "sourceId": "S1",
+      "passageId": "S1-P3",
+      "claim": "Application portal opened 15 August 2026 and closes on 30 November 2026 at 11:59 PM IST.",
+      "quote": "The definitive closing date for submitting online applications is 30 November 2026 at 11:59 PM IST.",
+      "coverage": "full",
+      "verified": true
+    },
+    {
+      "id": "FACT-S1-4",
+      "facetId": "F5",
+      "sourceId": "S1",
+      "passageId": "S1-P4",
+      "claim": "Recipients receive a non-repayable grant of INR 50,000 per year via DBT into an Aadhaar-seeded bank account.",
+      "quote": "Selected scholarship recipients will receive a non-repayable grant of INR 50,000 per academic year, transferred directly via Direct Benefit Transfer (DBT) to the recipient's Aadhaar-seeded bank account in two equal biannual installments.",
+      "coverage": "full",
+      "verified": true
+    },
+    {
+      "id": "FACT-S1-5",
+      "facetId": "F6",
+      "sourceId": "S1",
+      "passageId": "S1-P5",
+      "claim": "Applications must be submitted exclusively via https://scholarships.gov.in/national-merit-2026.",
+      "quote": "Applications must be submitted solely through the designated official web portal at https://scholarships.gov.in/national-merit-2026.",
+      "coverage": "full",
+      "verified": true
+    },
+    {
+      "id": "FACT-S2-1",
+      "facetId": "F1",
+      "sourceId": "S2",
+      "passageId": "S2-P1",
+      "claim": "Requires 75% marks in Class 12 board exams and household income within Rs 4.5 Lakh.",
+      "quote": "Applicants need to show at least 75% marks in their 12th board exams and must have household income within the Rs 4.5 Lakh ceiling.",
+      "coverage": "full",
+      "verified": true
+    },
+    {
+      "id": "FACT-S2-2",
+      "facetId": "F3",
+      "sourceId": "S2",
+      "passageId": "S2-P2",
+      "claim": "Applicants must upload parent's Income Tax Return (ITR) or Form 16; states revenue certificates without ITR are not accepted.",
+      "quote": "For financial verification, applicants must upload their parent's formal Income Tax Return (ITR) acknowledgment from the past assessment year or Form 16 from their employer. Revenue certificates without ITR are not accepted on the portal.",
+      "coverage": "full",
+      "verified": true
+    },
+    {
+      "id": "FACT-S2-3",
+      "facetId": "F2",
+      "sourceId": "S2",
+      "passageId": "S2-P3",
+      "claim": "Last date for submitting online applications is 30 November 2026.",
+      "quote": "The official portal opened in mid-August and the last date for submitting online applications is 30 November 2026.",
+      "coverage": "full",
+      "verified": true
+    },
+    {
+      "id": "FACT-S3-1",
+      "facetId": "F1",
+      "sourceId": "S3",
+      "passageId": "S3-P1",
+      "claim": "Requires 75% marks in high school exams for the 2024-25 cycle.",
+      "quote": "For the AY 2024-25 cycle, the ministry requires students to maintain a consistent academic record with 75% marks in high school exams.",
+      "coverage": "partial",
+      "verified": true
+    }
+  ],
+  "gaps": [
+    {
+      "id": "GAP-F4-MISSING",
+      "facetId": "F4",
+      "type": "missing",
+      "severity": "critical",
+      "note": "Potential gap, not found in the sources reviewed: 'Renewal Policy' has zero coverage across all 4 reviewed sources. Continuing GPA benchmarks, attendance thresholds, and renewal renewal submission windows are completely unspecified."
+    },
+    {
+      "id": "GAP-F7-MISSING",
+      "facetId": "F7",
+      "type": "missing",
+      "severity": "high",
+      "note": "Potential gap, not found in the sources reviewed: 'Selection & Merit Criteria' tie-breaker rules or quota distributions are not detailed."
+    },
+    {
+      "id": "GAP-F8-MISSING",
+      "facetId": "F8",
+      "type": "missing",
+      "severity": "medium",
+      "note": "Potential gap, not found in the sources reviewed: 'Helpdesk & Grievance Contact' official helpline number or contact nodal officer is missing."
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "CONF-F3-1",
+      "facetId": "F3",
+      "severity": "critical",
+      "a": {
+        "factId": "FACT-S1-2",
+        "sourceId": "S1",
+        "passageId": "S1-P2",
+        "claim": "Mandatory documents include mark sheets, domicile certificate, and income certificate from Revenue Officer/Tehsildar or Ration Card.",
+        "quote": "Candidates are required to upload digital copies of their Class 10 and 12 mark sheets, an official Domicile Certificate issued by a competent magistrate, and an authenticated Income Certificate issued exclusively by the Revenue Officer / Tehsildar or a valid Ration Card."
+      },
+      "b": {
+        "factId": "FACT-S2-2",
+        "sourceId": "S2",
+        "passageId": "S2-P2",
+        "claim": "Applicants must upload parent's Income Tax Return (ITR) or Form 16; states revenue certificates without ITR are not accepted.",
+        "quote": "For financial verification, applicants must upload their parent's formal Income Tax Return (ITR) acknowledgment from the past assessment year or Form 16 from their employer. Revenue certificates without ITR are not accepted on the portal."
+      },
+      "reason": "Conflicting income documentation requirements: Source S1 (Official Gazette) explicitly mandates a Revenue Officer / Tehsildar certificate or Ration Card, whereas Source S2 (StudentDesk) insists parent's Income Tax Return (ITR) / Form 16 is mandatory and claims revenue certificates are rejected.",
+      "method": "rule"
+    }
+  ],
+  "freshness": [
+    {
+      "id": "FLAG-S3-CYCLE",
+      "sourceId": "S3",
+      "type": "earlier_cycle",
+      "reason": "Page text references 'AY 2024-25', which is prior to the active 2026 cycle; today is 31 Oct 2026."
+    },
+    {
+      "id": "FLAG-S4-UNDATED",
+      "sourceId": "S4",
+      "type": "undated",
+      "reason": "Source provides no machine-readable publication or last-modified date. Verify publication context independently."
+    }
+  ],
+  "checklist": [
+    {
+      "id": "CHK-GAP-F4-MISSING",
+      "priority": "critical",
+      "action": "Confirm multi-year renewal conditions and required CGPA thresholds on the official scholarship notice before enrolling.",
+      "whereToVerify": "https://scholarships.gov.in/national-merit-2026",
+      "evidence": ["GAP-F4-MISSING"],
+      "label": "ai",
+      "done": false
+    },
+    {
+      "id": "CHK-CONF-F3-1",
+      "priority": "critical",
+      "action": "Resolve contradictory income proof mandates: verify whether Tehsildar certificate (S1) or ITR Form 16 (S2) is accepted on the portal upload form.",
+      "whereToVerify": "Official National Scholarship Portal FAQ / Helpdesk (scholarships.gov.in)",
+      "evidence": ["CONF-F3-1", "FACT-S1-2", "FACT-S2-2"],
+      "label": "rule",
+      "done": false
+    },
+    {
+      "id": "CHK-FLAG-S3-CYCLE",
+      "priority": "high",
+      "action": "Discard timeline and batch rules cited by Source S3 (EduTips Blog); confirm latest 2026 guidelines.",
+      "whereToVerify": "https://scholarships.gov.in/national-merit-2026",
+      "evidence": ["FLAG-S3-CYCLE"],
+      "label": "rule",
+      "done": false
+    },
+    {
+      "id": "CHK-DEADLINE-S1",
+      "priority": "high",
+      "action": "Confirm current application closing date (30 November 2026 at 11:59 PM IST) to prevent server lockout.",
+      "whereToVerify": "https://scholarships.gov.in/national-merit-2026",
+      "evidence": ["FACT-S1-3"],
+      "label": "sourced",
+      "done": false
+    },
+    {
+      "id": "CHK-FLAG-S4-UNDATED",
+      "priority": "medium",
+      "action": "Cross-check undated peer discussion in Source S4 against the signed department notification.",
+      "whereToVerify": "Department of Higher Education & Welfare official notification",
+      "evidence": ["FLAG-S4-UNDATED"],
+      "label": "rule",
+      "done": false
+    }
+  ],
+  "stats": {
+    "claimsVerified": 9,
+    "claimsRemoved": 0,
+    "sourcesOk": 4,
+    "sourcesFailed": 0
+  }
+}
