@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0A0A0A;
+  --paper: #FFF4DC;
+  --paper-tint: #FFFDF8;
+  --card-bg: #FFFFFF;
+  --yellow: #FFD23F;
+  --yellow-hover: #FFE066;
+  --yellow-light: #FFF8D6;
+  --pink: #FF6B9D;
+  --pink-light: #FFEBF2;
+  --blue: #4D96FF;
+  --blue-light: #EDF5FF;
+  --green: #5BD98A;
+  --green-light: #EAFAF0;
+  --purple: #B388FF;
+  --purple-light: #F4EEFF;
+  --orange: #FF8A3D;
+  --orange-light: #FFF2EA;
+  --red: #FF4D4D;
+  --red-light: #FFEAEA;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  background-image: radial-gradient(rgba(10, 10, 10, 0.12) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  background-position: 0 0;
+  font-family: var(--font-grotesk), system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+code, kbd, samp, pre, .font-mono {
+  font-family: var(--font-mono), monospace;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-grotesk), sans-serif;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+/* Bold Neo-Brutalist Card Primitives with Warm Color Depth */
+.border-2\.5 {
+  border-width: 2.5px;
+}
+
+.nb-card {
+  background: #FFFDF8;
+  border: 2.5px solid var(--ink);
+  box-shadow: 5px 5px 0 0 var(--ink);
+  border-radius: 12px;
+}
+
+.nb-card-lg {
+  background: #FFFDF8;
+  border: 3px solid var(--ink);
+  box-shadow: 6px 6px 0 0 var(--ink);
+  border-radius: 16px;
+}
+
+.nb-card-sm {
+  background: #FFFDF8;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 0 var(--ink);
+  border-radius: 10px;
+}
+
+.nb-btn {
+  border: 2.5px solid var(--ink);
+  box-shadow: 4px 4px 0 0 var(--ink);
+  border-radius: 10px;
+  background-color: var(--yellow);
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background-color 0.15s ease;
+  cursor: pointer;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.nb-btn:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--ink);
+}
+
+.nb-btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 0 var(--ink);
+}
+
+.nb-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 2px 2px 0 0 var(--ink);
+}
+
+.nb-input {
+  border: 2.5px solid var(--ink);
+  background: #FFFFFF;
+  box-shadow: 3px 3px 0 0 var(--ink);
+  border-radius: 10px;
+  color: var(--ink);
+  font-family: inherit;
+  padding: 0.75rem 0.95rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.nb-input:focus {
+  outline: none;
+  box-shadow: 4px 4px 0 0 var(--blue);
+  border-color: var(--ink);
+}
+
+.nb-sticker {
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 2.5px 2.5px 0 0 var(--ink);
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nb-chip {
+  border: 2px solid var(--ink);
+  box-shadow: 2.5px 2.5px 0 0 var(--ink);
+  border-radius: 8px;
+  font-weight: 800;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.nb-chip:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3.5px 3.5px 0 0 var(--ink);
+}
+
+/* Subtle Animated Marquee */
+@keyframes marquee-scroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+::-webkit-scrollbar-thumb {
+  background: #D4C198;
+  border-radius: 4px;
+  border: 1px solid var(--ink);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--yellow);
+}
