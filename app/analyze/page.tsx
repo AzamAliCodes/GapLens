@@ -100,8 +100,26 @@ export default function AnalyzeDashboardPage() {
         console.log('[AnalyzePage] /api/analyze status:', res.status, res.statusText);
 
         if (!res.ok) {
-          const errData = await res.json().catch(() => ({}));
-          throw new Error(errData.error || `HTTP ${res.status}: ${res.statusText}`);
+          let errorDetail = '';
+          try {
+            const raw = await res.text();
+            try {
+              const errJson = JSON.parse(raw);
+              errorDetail = errJson.error || errJson.message || '';
+            } catch {
+              if (raw && raw.length < 300) {
+                errorDetail = raw.trim();
+              }
+            }
+          } catch {
+            // Ignore response read error
+          }
+
+          const fallback = res.status === 500
+            ? 'The server encountered an internal error while processing the analysis. Please verify your source inputs or try again.'
+            : `HTTP ${res.status}${res.statusText ? `: ${res.statusText}` : ''}`;
+
+          throw new Error(errorDetail || fallback);
         }
 
         const reader = res.body?.getReader();

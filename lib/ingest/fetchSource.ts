@@ -23,6 +23,14 @@ interface CacheEntry {
 const fetchCache = new Map<string, CacheEntry>();
 const CACHE_TTL_MS = 10 * 60 * 1000;
 
+function safeExtractDomain(urlStr: string): string {
+  try {
+    return new URL(urlStr).hostname.replace(/^www\./, '');
+  } catch {
+    return 'unknown';
+  }
+}
+
 export function toSourceRecord(source: Source): SourceRecord {
   const origin = source.kind === 'pasted' ? 'user_text' : 'user_url';
   const authority = assessSourceAuthority(source.url, source.domain, source.title);
@@ -248,7 +256,7 @@ export async function processSourceInput(
     throw new Error('Too many redirects (exceeded limit of 3)');
   } catch (err: unknown) {
     const errorMsg = err instanceof Error ? err.message : String(err);
-    const domain = new URL(rawUrl).hostname.replace(/^www\./, '');
+    const domain = safeExtractDomain(rawUrl);
 
     // Fall back to verified snippet text if provided from search index
     if (input.text && input.text.trim()) {
