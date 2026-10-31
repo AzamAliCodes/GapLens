@@ -1,0 +1,47 @@
+{
+  "name": "gaplens",
+  "version": "1.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "eval": "tsx scripts/eval.ts",
+    "eval:benchmark": "tsx scripts/eval-benchmark.ts",
+    "test:security": "tsx scripts/test-verification.ts",
+    "test:core": "tsx scripts/test-core.ts",
+    "test": "tsx scripts/test-verification.ts && tsx scripts/test-core.ts"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.94",
+    "@ai-sdk/google": "^4.0.109",
+    "@ai-sdk/openai": "^4.0.106",
+    "@mozilla/readability": "^0.6.0",
+    "ai": "^7.0.159",
+    "cheerio": "^1.2.0",
+    "jsdom": "^29.1.1",
+    "lucide-react": "^1.66.0",
+    "minisearch": "^7.2.0",
+    "next": "16.4.3",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "^4.6.7",
+    "zustand": "^5.0.16"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "@types/jsdom": "^30.0.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.3",
+    "playwright": "^1.64.1",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "typescript": "^5"
+  }
+}
