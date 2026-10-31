@@ -1,0 +1,11 @@
+{
+  "scenario": "National Merit Scholarship 2026",
+  "goal": "What should I verify before applying for this scholarship?",
+  "expectedGaps": ["Renewal Policy", "Selection & Merit Criteria", "Helpdesk & Grievance Contact"],
+  "expectedConflicts": ["Mandatory Documents"],
+  "expectedFreshnessFlags": {
+    "staleOrCycle": 1,
+    "undated": 1
+  },
+  "minQuoteVerificationRate": 0.90
+}

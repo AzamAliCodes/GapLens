@@ -1,0 +1,58 @@
+[
+  {
+    "id": "BENCH-001",
+    "claimText": "Eligible candidates must have achieved a minimum aggregate of 75% marks in their Higher Secondary Examination (Class 12).",
+    "exactSpan": "minimum aggregate of 75% marks in their Higher Secondary Examination (Class 12)",
+    "expectedVerdict": "SUPPORTED",
+    "category": "numeric_threshold",
+    "sourceEvidence": "Eligible candidates must have achieved a minimum aggregate of 75% marks in their Higher Secondary Examination (Class 12). Total gross family income from all sources must not exceed INR 4,50,000 per annum."
+  },
+  {
+    "id": "BENCH-002",
+    "claimText": "Gross annual family income from all sources must not exceed INR 6,00,000 per annum.",
+    "exactSpan": "family income from all sources must not exceed INR 6,00,000",
+    "expectedVerdict": "CONTRADICTED",
+    "category": "numeric_contradiction",
+    "sourceEvidence": "Total gross family income from all sources must not exceed INR 4,50,000 per annum."
+  },
+  {
+    "id": "BENCH-003",
+    "claimText": "Parent's Income Tax Return (ITR) is strictly mandatory for all applicants.",
+    "exactSpan": "Income Tax Return (ITR) is strictly mandatory",
+    "expectedVerdict": "CONTRADICTED",
+    "category": "polarity_contradiction",
+    "sourceEvidence": "Income certificate issued by a competent Revenue Officer not below the rank of Tehsildar or a valid Ration Card shall be accepted as valid income proof."
+  },
+  {
+    "id": "BENCH-004",
+    "claimText": "The application portal closing date for AY 2024-25 was 15 October 2024.",
+    "exactSpan": "application portal closing date for AY 2024-25 was 15 October 2024",
+    "expectedVerdict": "INSUFFICIENT_EVIDENCE",
+    "category": "temporal_divergence",
+    "sourceEvidence": "Active cycle for AY 2026-27 closes on 30 November 2026."
+  },
+  {
+    "id": "BENCH-005",
+    "claimText": "Students must maintain a continuing 7.5 CGPA in university to renew the scholarship.",
+    "exactSpan": "Students must maintain a continuing 7.5 CGPA",
+    "expectedVerdict": "INSUFFICIENT_EVIDENCE",
+    "category": "missing_evidence_gap",
+    "sourceEvidence": "Applicants must be enrolled full-time in an undergraduate degree program."
+  },
+  {
+    "id": "BENCH-006",
+    "claimText": "Applying as early as possible is a wonderful idea that guarantees complete peace of mind.",
+    "exactSpan": "Applying as early as possible is a wonderful idea",
+    "expectedVerdict": "NOT_FACT_CHECKABLE",
+    "category": "subjective_opinion",
+    "sourceEvidence": "Portal servers may experience high traffic near deadline."
+  },
+  {
+    "id": "BENCH-007",
+    "claimText": "Eligible candidates must have scored at least 60% marks in Class 12.",
+    "exactSpan": "at least 60% marks in Class 12",
+    "expectedVerdict": "CONTRADICTED",
+    "category": "numeric_contradiction",
+    "sourceEvidence": "Eligible candidates must have achieved a minimum aggregate of 75% marks in their Higher Secondary Examination (Class 12)."
+  }
+]

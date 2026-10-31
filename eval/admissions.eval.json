@@ -1,0 +1,7 @@
+{
+  "scenario": "Undergraduate University Admissions 2026",
+  "goal": "What eligibility cutoffs, fees and refund rules apply for university admission?",
+  "expectedGaps": ["Accreditation & Degree Recognition", "Hostel & Campus Facilities"],
+  "expectedConflicts": ["Fee Structure & Refund Policy"],
+  "minQuoteVerificationRate": 0.85
+}

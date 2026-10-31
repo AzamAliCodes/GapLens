@@ -1,0 +1,7 @@
+{
+  "scenario": "Public Welfare Credit & Subsidy Scheme",
+  "goal": "What mandatory documents, subsidy limits and interest terms apply to this government scheme?",
+  "expectedGaps": ["Grievance Redressal Mechanism", "Validity & Scheme Expiry"],
+  "expectedConflicts": ["Required Proofs & KYC Documents"],
+  "minQuoteVerificationRate": 0.85
+}
