@@ -103,23 +103,26 @@ export default function AnalyzeDashboardPage() {
           let errorDetail = '';
           try {
             const raw = await res.text();
+            console.error('[AnalyzePage] Server error payload:', raw);
             try {
               const errJson = JSON.parse(raw);
               errorDetail = errJson.error || errJson.message || '';
             } catch {
-              if (raw && raw.length < 300) {
-                errorDetail = raw.trim();
+              const clean = raw.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+                               .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+                               .replace(/<[^>]+>/g, ' ')
+                               .replace(/\s+/g, ' ')
+                               .trim();
+              if (clean) {
+                errorDetail = clean.slice(0, 250);
               }
             }
           } catch {
             // Ignore response read error
           }
 
-          const fallback = res.status === 500
-            ? 'The server encountered an internal error while processing the analysis. Please verify your source inputs or try again.'
-            : `HTTP ${res.status}${res.statusText ? `: ${res.statusText}` : ''}`;
-
-          throw new Error(errorDetail || fallback);
+          const fallback = `HTTP ${res.status}${res.statusText ? `: ${res.statusText}` : ' (Internal Server Error)'}`;
+          throw new Error(errorDetail ? `[${res.status}] ${errorDetail}` : fallback);
         }
 
         const reader = res.body?.getReader();

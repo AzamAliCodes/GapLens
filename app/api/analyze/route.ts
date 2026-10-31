@@ -4,6 +4,9 @@ import { checkRateLimit } from '@/lib/security/ratelimit';
 import { runAnalysisPipeline } from '@/lib/analyze/pipeline';
 import { StreamEvent } from '@/lib/types';
 
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 export async function POST(req: NextRequest) {
   try {
     // 1. Rate limiting check
